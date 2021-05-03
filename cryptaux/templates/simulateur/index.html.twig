@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Simulateur investissement {% endblock %}
+
+{% block main %}
+<br>
+<div class="container">
+Combien auriez vous gagné si vous aviez investi le 
+
+<select id="selectid" name="thelist" onchange="recup()" >
+    <option></option>
+    <option value="val1">13 Mars 2020 - 1 Bitcoin = 3589 €</option>
+    <option value="val2">1 Février 2020 - 1 Bitcoin = 27314 €</option>
+    <option value="val3">1 Mars 2020 - 1 Bitcoin = 37368 €</option>
+</select> ?<br><br>
+
+<script>
+var PrixDate;
+var PrixBTCActuel = {{ BTC.data.amount }};
+var Résultat;
+
+
+
+function recup(){
+if (document.getElementById('selectid').value == "val1"){
+    PrixDate=3589;
+}
+else if (document.getElementById('selectid').value == "val2") {
+    PrixDate=27314;
+}
+else if (document.getElementById('selectid').value == "val3") {
+    PrixDate=37368;
+} 
+}
+
+function calcul() {
+    Benef=0;
+    var PrixBTCActuel = {{ BTC.data.amount }};
+    var prix=eval(document.formu.prix.value);
+    var Résultat=PrixBTCActuel/PrixDate;
+    var Benef=prix*Résultat;
+    var Benef=Benef-prix;
+    document.formu.Benef.value=String(Benef);
+    
+}
+</script>
+
+
+
+<FORM NAME="formu">
+Somme investi € :<br>
+<INPUT NAME="prix" TYPE="text" SIZE="10"><br><br>
+<INPUT TYPE="button" VALUE="Calculer" ONCLICK="calcul()"><br><br>
+Bénéfice en € :<br>
+<INPUT NAME="Benef" TYPE="text" readonly SIZE="10">
+<br>
+
+
+
+
+
+
+
+
+
+</div>
+{% endblock %}

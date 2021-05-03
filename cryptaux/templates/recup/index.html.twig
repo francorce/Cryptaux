@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Prix BTC {% endblock %}
+
+{% block main %}
+
+<div class="container">
+<br>
+<div class="tg-wrap"><table class="table table-hover" border=0>
+
+  <tr>
+  <th scope="col">Nom</th>
+  <th scope="col">EUR €</th>
+  <th scope="col">USD $</th>
+  </tr>
+
+<tbody class="fixtable">
+  <tr class="table-active">
+    <td class="tg-baqh"><img class="fixlogo" src="img/bitcoin.png">  Bitcoin</td>
+    <td class="tg-0lax" >{{ BTC.data.amount }} €</td>
+    <td class="tg-0lax" >{{ BTC_.data.amount }} $</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh"> <img class="fixlogo" src="img/maker.png">   Maker</td>
+    <td class="tg-0lax" >{{ MKR.data.amount }} €</td>
+    <td class="tg-0lax" >{{ MKR_.data.amount }} $</td>
+  </tr>
+  <tr class="table-active">
+    <td class="tg-baqh"> <img class="fixlogo" src="img/ethereum.png"> Ethereum</td>
+    <td class="tg-0lax" >{{ ETH.data.amount }} €</td>
+    <td class="tg-0lax" >{{ ETH_.data.amount }} $</td>
+  </tr>
+  <tr >
+    <td class="tg-baqh"> <img class="fixlogo" src="img/chainlink.png"> Chain Link</td>
+    <td class="tg-0lax" >{{ LNK.data.amount }} €</td>
+    <td class="tg-0lax" >{{ LNK_.data.amount }} $</td>
+  </tr>
+  <tr class="table-active">
+    <td class="tg-baqh"> <img class="fixlogo" src="img/stellar.png"> Stellar Lumens</td>
+    <td class="tg-0lax" >{{ XLM.data.amount }} €</td>
+    <td class="tg-0lax" >{{ XLM_.data.amount }} $</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh"> <img class="fixlogo" src="img/uniswap.png"> Uniswap</td>
+    <td class="tg-0lax" >{{ UNI.data.amount }} €</td>
+    <td class="tg-0lax" >{{ UNI_.data.amount }} $</td>
+  </tr>
+  <tr class="table-active">
+    <td class="tg-baqh"> <img class="fixlogo" src="img/decentraland.png"> Decentraland</td>
+    <td class="tg-0lax" >{{ MANA.data.amount }} €</td>
+    <td class="tg-0lax" >{{ MANA_.data.amount }} $</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+
+
+{% block javascripts %}  
+{#
+<script>
+$(document).ready(function(){
+
+        fetch_logs();
+
+        setInterval(function(){
+                fetch_logs();
+        }, 2000);
+
+        function fetch_logs()
+        {
+                $.ajax({
+                        url:"src/Controller/RecupController.php",
+                        method:"POST",
+                        success:function(data){
+                                $('#ez').html(data);
+                        }
+                })
+        }
+});
+</script> 
+#}
+{% endblock %}
+{% endblock %}

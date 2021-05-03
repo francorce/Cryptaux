@@ -1,0 +1,35 @@
+<div class="container">
+<div  
+class="ui-carousel ui-widget ui-widget-content ui-corner-all ui-hidden-container" 
+style="width: 732.467px;" >
+<div class="ui-carousel-header ">
+<div class="ui-carousel-header-title"></div>
+<div class="ui-carousel-page-links">
+</div></div>dazdaz
+    <div class="ui-carousel-viewport">
+        <ul class="ui-carousel-items" style="left: 0px;">
+            <li class="ui-carousel-item ui-widget-content ui-corner-all" style="width: 1000px;">
+            <!-- mettre  data-interval="false" dans la div en dessous pour arrêter le défilement automatique -->
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for key, value in publications %}
+                            <div class="carousel-item{{ key == 0 ? ' active' : '' }}">
+                                <h4 class="ui-outputlabel ui-widget titre">{{ value.titre|raw }}</h4>
+                                <label class="ui-outputlabel ui-widget texte">{{ value.texte|raw }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    </div>
+            </li>
+        </ul>  
+    </div>
+</div>
+</div>
