@@ -110,9 +110,7 @@ class RecupController extends AbstractController
         curl_setopt($curl14, CURLOPT_SSL_VERIFYPEER, 0);
         $return14 = curl_exec($curl14);
         curl_close($curl14);
-
-    
-
+        
         return $this->render('recup/index.html.twig', 
         array(
         'BTC' => json_decode($return),
